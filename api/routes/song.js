@@ -5,7 +5,9 @@ const Song = require("../models/song");
 
 router.get("/", (req,res,next) => {
     res.json({
-        message:"Song - GET"
+        message:"Song - GET",
+        album: "2022",
+        song: "Buffalo Soldier by Bob Marley"
     });
 });
 
@@ -22,6 +24,7 @@ router.post("/", (req,res,next) => {
             console.log(result);
             res.status(200).json({
                 message: "Song Saved", 
+                album: "2022",
                 song:{
                     title: result.title,
                     artist: result.artist,
@@ -47,7 +50,9 @@ router.get("/:songId", (req,res,next) => {
     const songId = req.params.songId;
     res.json({
         message:"Song - GET",
-        id: songId
+        id: songId,
+        album: "2022",
+        song: "Buffalo Soldier by Bob Marley"
     });
 });
 
@@ -66,6 +71,7 @@ router.patch("/:songId", (req,res,next) => {
     }).then(result => {
         res.status(200).json({
             message: "Updated Song", 
+            album: "2022",
             song: {
                 title: result.title, 
                 artist: result.artist, 
@@ -90,7 +96,9 @@ router.delete("/:songId", (req,res,next) => {
     const songId = req.params.songId;
     res.json({
         message:"Song - DELETE",
-        id: songId
+        id: songId,
+        album: "2022",
+        song: "Buffalo Soldier by Bob Marley"
     });
 });
 
